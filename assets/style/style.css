@@ -70,6 +70,9 @@ a {
 a:hover {
     color: var(--accent-color);
 }
+i {
+    cursor: pointer;
+}
 
 
 /* ===Cover=== */
@@ -195,6 +198,9 @@ h1 {
 }
 .icon-Unknown {
     background-image: url(../image/icons8-online-community-96.png);
+}
+.form {
+    display: none ;
 }
 
  

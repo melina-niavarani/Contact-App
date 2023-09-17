@@ -21,12 +21,12 @@ let enableForm = false;
 let form = document.getElementById('add-form')
 function showAddForm() {
    enableForm = !enableForm
-   if (enableForm) {
-      form.style.display = "block"
-      console.log(form.style)
-   } else {
-      form.style.display = "none"
-   }
+   if (enableForm)  form.style.display = "block"
+}
+
+function closeForm() {
+   enableForm = !enableForm
+   if(!enableForm) form.style.display = "none"
 }
 
 function filterNames(){
