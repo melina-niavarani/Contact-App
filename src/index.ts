@@ -63,7 +63,7 @@ function filterNames(){
 
 // Search by category
 
-let iconEl = document.getElementsByClassName('.group-title') as any
+let iconEl = document.querySelectorAll('.group-title') as any
 
 iconEl.forEach ( (icon: any) => {
    icon.addEventListener('click', (e: any) => {

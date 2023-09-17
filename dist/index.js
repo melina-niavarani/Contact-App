@@ -50,7 +50,8 @@ function filterNames() {
             contact.style.display = display;
     });
 }
-let iconEl = document.getElementsByClassName('.group-title');
+
+let iconEl = document.querySelectorAll('.group-title');
 iconEl.forEach((icon) => {
     icon.addEventListener('click', (e) => {
         const filterGroup = e.target.dataset.id;
