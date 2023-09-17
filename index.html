@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="https://kit.fontawesome.com/10cdaa6880.js" crossorigin="anonymous"></script>
+</head>
+<body class="position-relative">
+    <div class="container position-relative">
+        <span class="cover-bg position-absolute"></span>
+        <h1>Contact Form</h1>
+    </div>
+    <div class="container-fluid d-flex justify-content-between">
+        <div id="search" class="d-flex justify-content-center align-items-center position-relative search ">
+            <!-- <i class="fa-solid fa-xmark position-absolute top-0 left-0 cursor-pointer p-2"  style="color: #1e3799;"></i> -->
+            <input id="input" class="search-input " type="search" oninput="filterNames()">
+            <dov class="search-icon-holder" onclick="expandSearchBar()">
+                <span class="search-icon"></span>
+            </dov>
+        </div>
+        <button onclick="showAddForm()" class="add">add</button>
+        <div id="add-form" class="d-none position-absolute top-40 start-50 translate-middle-x z-2 bg-body p-5 bo d-flex flex-column gap-2 rounded-3 shadow-lg" id="newPersonForm">
+            <h2>Add New Person</h2>
+
+            <label for="newPersonName">Name</label>
+            <input type="text" id="newPersonName">
+
+            <label for="newPersonLastName">Last Name</label>
+            <input type="text"id="newPersonLastName">
+
+            <label for="newPersonPhone">Phone Number</label>
+            <input type="tel" id="newPersonPhone">
+
+            <label for="newPersonEmail">Email</label>
+            <input type="email" id="newPersonEmail">
+
+            <label for="newPersonGroup">Category</label>
+            <input type="text" id="newPersonGroup">
+
+            <label for="newPersonAddress">Address</label>
+            <input type="text" id="newPersonAddress">
+
+            <button id="newPersonCancelBtn" class="cancel my-3">Cancel</button>
+            <button id="newPersonSubmitBtn" class="submit">Submit</button>
+        </div>
+    </div>
+    <section class="container">
+        <ul class="row list-unstyled align-items-center justify-content-evenly"> 
+            <li class="col d-flex flex-column align-items-center justify-content-center cursor-pointer">
+                <div class="icon d-flex align-items-center justify-content-center p-1 m-2">
+                    <span class="icon-family"></span>
+                </div>
+                <button class="group-title" data-id="family">Family</button>
+            </li>
+            <li class="col d-flex flex-column align-items-center justify-content-center cursor-pointer">
+                <div class="icon d-flex align-items-center justify-content-center p-1 m-2">
+                    <span class="icon-friends"></span>
+                </div>
+                <button class="group-title" data-id="friends">Friends</button>
+            </li>
+            <li class="col d-flex flex-column align-items-center justify-content-center cursor-pointer">
+                <div class="icon d-flex align-items-center justify-content-center p-1 m-2">
+                    <span class="icon-co-worker"></span>
+                </div>
+                <button class="group-title" data-id="co-worker" >Co-Worker</button>
+            </li>
+            <li class="col d-flex flex-column align-items-center justify-content-center cursor-pointer">
+                <div class="icon d-flex align-items-center justify-content-center p-1 m-2">
+                    <span class="icon-Unknown"></span>
+                </div>
+                <button class="group-title"  data-id="unknown">Unknown</button>
+            </li>
+        </ul>
+    </section>
+    <main class="container">
+        <div id="message" class="d-flex justify-content-center align-items-lg-center py-5 fs-3 d-none">Nothig Found</div>
+        <ul id="names" class="row list-unstyled ">
+            <li class="d-flex flex-column col-12 col-lg-4 g-3" >
+                <div class="contact p-3 ">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">Melina</h2>
+                            <h2 class="last-name">niavarani</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/me.jpg" alt="contact-photo" >
+                    </div>
+                    <div class="phone-number"><a href="tel:09121234567" alt="call 09121234567">09121234567</a></div>
+                    <div class="email"><a href ="mailto: m.niavarani@hotmail.com">m.niavarani@hotmail.com</a></div>
+                    <span id="friend" class="category">Friends</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-2"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">nariman</h2>
+                            <h2  class="last-name">niavarani</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-male-user-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121289267" alt="call 09121289267">09121289267</a></div>
+                    <div class="email"><a href ="mailto: narimann@yahoo.com">narimann@yahoo.com</a></div>
+                    <span class="category">family</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">mona</h2>
+                            <h2  class="last-name">hosseini</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-female-profile-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09361299967" alt="call 09361299967">09361299967</a></div>
+                    <div class="email"><a href="mailto: mona@gmail.com">mona@gmail.com</a></div>
+                    <span id="friend" class="category">friends</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-2"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">marjan</h2>
+                            <h2 class="last-name">khosravi</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-female-profile-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121234589" alt="call 09121234589">09121234589</a></div>
+                    <div class="email"><a href ="mailto: marjan111123@yahoo.com">marjan111123@yahoo.com</a></div>
+                    <span class="category">Co-Worker</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">babak</h2>
+                            <h2 class="last-name">mousavian</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-male-user-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121231117" alt="call 09121231117">09121231117</a></div>
+                    <div class="email"><a href ="mailto: babak12345@yahoo.com">babak12345@yahoo.com</a></div>
+                    <span class="category">family</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-2"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">zahra</h2>
+                            <h2 class="last-name">jalili</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-female-profile-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121444567" alt="call 09121444567">09121444567</a></div>
+                    <div class="email"><a href ="mailto: ozahra123@yahoo.com">ozahra123@yahoo.com</a></div>
+                    <span class="category">Unknown</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">parsa</h2>
+                            <h2 class="last-name">toghian</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-male-user-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121234567" alt="call 09121234567">09121234444</a></div>
+                    <div class="email"></div>
+                    <span class="category">Co-Worker</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3 ">
+                <div class="contact p-3">
+                    <span class="card-background bg-2"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">yazdan</h2>
+                            <h2 class="last-name">majd</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/tempAvatar.jpg" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09191934567" alt="call 09191934567">09191934567</a></div>
+                    <div class="email"><a href ="mailto: majdyazdan@gmail.com">majdyazdan@gmail.com</a></div>
+                    <span class="category">Friends</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3">
+                <div class="contact p-3">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">maryam</h2>
+                            <h2 class="last-name">lotfi</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-female-profile-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09361222567" alt="call 09361222567">09361222567</a></div>
+                    <div class="email"><a href ="mailto: mary@hotmail.com">mary@hotmail.com</a></div>
+                    <span class="category">Friends</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3">
+                <div class="contact p-3">
+                    <span class="card-background bg-2"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">saeed</h2>
+                            <h2 class="last-name">niavarani</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-male-user-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09121999567" alt="call 09121999567">09121999567</a></div>
+                    <div class="email"></div>
+                    <span class="category">family</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, veniam.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex flex-column col-12 col-lg-4 g-3">
+                <div class="contact p-3">
+                    <span class="card-background bg-1"></span>
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        <div class="d-flex">
+                            <h2 class="first-name">mitra</h2>
+                            <h2 class="last-name">manteghi</h2>
+                        </div>
+                        <img src="assets/image/ppl-photos/icons8-female-profile-96.png" alt="contact-photo">
+                    </div>
+                    <div class="phone-number"><a href="tel:09124434567" alt="call 09124434567">09124434567</a></div>
+                    <div class="email"><a href ="mailto: mitra_24@yahoo.com">mitra_24@yahoo.com</a></div>
+                    <span class="category">Unknown</span>
+                    <div class="address d-flex text-truncate">
+                        <span>Address:</span>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+<script src="./dist/index.js"></script>
+</html>
