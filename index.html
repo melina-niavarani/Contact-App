@@ -16,7 +16,6 @@
     </div>
     <div class="container-fluid d-flex justify-content-between">
         <div id="search" class="d-flex justify-content-center align-items-center position-relative search ">
-            <!-- <i class="fa-solid fa-xmark position-absolute top-0 left-0 cursor-pointer p-2"  style="color: #1e3799;"></i> -->
             <input id="input" class="search-input " type="search" oninput="filterNames()">
             <dov class="search-icon-holder" onclick="expandSearchBar()">
                 <span class="search-icon"></span>
@@ -27,20 +26,20 @@
             <div class="position-relative d-flex flex-column gap-2 mx-5 my-2">
                 <span onclick="closeForm()" class="p-2 position-absolute top-0 end-0"><i class="fa-solid fa-xmark "  style="color: #1e3799;"></i></span>
                 <h2 class="mt-5">Add New Person</h2>
-                <label for="newPersonName">Name</label>
+                <label for="newPersonName">Name:</label>
                 <input type="text" id="newPersonName">
-                <label for="newPersonLastName">Last Name</label>
+                <label for="newPersonLastName">Last Name:</label>
                 <input type="text"id="newPersonLastName">
-                <label for="newPersonPhone">Phone Number</label>
+                <label for="newPersonPhone">Phone Number:</label>
                 <input type="tel" id="newPersonPhone">
-                <label for="newPersonEmail">Email</label>
+                <label for="newPersonEmail">Email:</label>
                 <input type="email" id="newPersonEmail">
-                <label for="newPersonGroup">Category</label>
+                <label for="newPersonGroup">Category:</label>
                 <input type="text" id="newPersonGroup">
-                <label for="newPersonAddress">Address</label>
+                <label for="newPersonAddress">Address:</label>
                 <input type="text" id="newPersonAddress">
                 <button id="newPersonCancelBtn" class="cancel my-3">Cancel</button>
-                <button id="newPersonSubmitBtn" class="submit">Submit</button>
+                <button id="newPersonSubmitBtn" class="submit mb-5">Submit</button>
             </div>
         </div>
     </div>
@@ -73,7 +72,7 @@
         </ul>
     </section>
     <main class="container">
-        <div id="message" class="d-flex justify-content-center align-items-lg-center py-5 fs-3 d-none">Nothig Found</div>
+        <h3 id="message" class="text-center py-5 fs-3">Nothig Found</h3>
         <ul id="names" class="row list-unstyled ">
             <li class="d-flex flex-column col-12 col-lg-4 g-3" >
                 <div class="contact p-3 ">

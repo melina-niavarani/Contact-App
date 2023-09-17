@@ -205,6 +205,9 @@ h1 {
 
  
 /* === Contact === */
+#message {
+    display: none;
+}
 .contact {
     border-radius: var(--contact-holder-border-radius);
     height: 550px;
