@@ -110,7 +110,6 @@ function addContact(person: PersonDetail) {
 
     // Append the new contact to the 'names' list
     const namesList = document.getElementById('names');
-    console.log(namesList)
     if (namesList) {
         const newContactElement = document.createElement('li');
         newContactElement.innerHTML = contactHTML;
@@ -124,7 +123,7 @@ if (addContactButton) {
     addContactButton.addEventListener('click', (event) => {
         event.preventDefault();
         dataContact = {
-            firstName: (document.getElementById('newPersonName') as HTMLInputElement)?.value,
+            firstName: (document.getElementById('newPersonFirstName') as HTMLInputElement)?.value,
             lastName: (document.getElementById('newPersonLastName') as HTMLInputElement)?.value,
             phoneNumber: parseInt((document.getElementById("newPhoneNumber") as HTMLInputElement)?.value),
             email: (document.getElementById("newPersonEmail") as HTMLInputElement)?.value,
@@ -132,7 +131,7 @@ if (addContactButton) {
             address: (document.getElementById("newPersonAddress") as HTMLInputElement)?.value,
         };
         addContact(dataContact);
-        enableForm === false;
+        closeForm()
     });
 }
 //-------------------------- Search by category------------------------///

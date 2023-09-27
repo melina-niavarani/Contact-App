@@ -26,8 +26,8 @@
             <form id="contact-form" class="form position-relative d-flex flex-column gap-2 mx-5 my-2">
                 <span onclick="closeForm()" class="p-2 position-absolute top-0 end-0"><i class="fa-solid fa-xmark "  style="color: #1e3799;"></i></span>
                 <h2 class="mt-5">Add New Person</h2>
-                <label for="newPersonName">Name:</label>
-                <input id="newPersonFirstName" type="text" id="newPersonName">
+                <label for="newPersonFirstName">Name:</label>
+                <input id="newPersonFirstName" type="text" id="newPersonFirstName">
                 <label for="newPersonLastName">Last Name:</label>
                 <input id="newPersonLastName" type="text"id="newPersonLastName" >
                 <label for="newPersonPhone">Phone Number:</label>
@@ -43,7 +43,7 @@
                 </select>
                 <label  for="newPersonAddress">Address:</label>
                 <input id="newPersonAddress"  type="text" id="newPersonAddress">
-                <button id="newPersonCancelBtn" class="cancel my-3">Cancel</button>
+                <button onclick="closeForm()" id="newPersonCancelBtn" class="cancel my-3">Cancel</button>
                 <button  id="addContactButton" class="submit mb-5">Submit</button>
             </form>
         </div>

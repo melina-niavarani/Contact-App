@@ -85,11 +85,9 @@ function createContactHTML(contact) {
 function addContact(person) {
     const contactHTML = createContactHTML(person);
     const namesList = document.getElementById('names');
-    console.log(namesList);
     if (namesList) {
         const newContactElement = document.createElement('li');
         newContactElement.innerHTML = contactHTML;
-        console.log(newContactElement);
         namesList.appendChild(newContactElement);
     }
 }
@@ -99,7 +97,7 @@ if (addContactButton) {
         var _a, _b, _c, _d, _e, _f;
         event.preventDefault();
         dataContact = {
-            firstName: (_a = document.getElementById('newPersonName')) === null || _a === void 0 ? void 0 : _a.value,
+            firstName: (_a = document.getElementById('newPersonFirstName')) === null || _a === void 0 ? void 0 : _a.value,
             lastName: (_b = document.getElementById('newPersonLastName')) === null || _b === void 0 ? void 0 : _b.value,
             phoneNumber: parseInt((_c = document.getElementById("newPhoneNumber")) === null || _c === void 0 ? void 0 : _c.value),
             email: (_d = document.getElementById("newPersonEmail")) === null || _d === void 0 ? void 0 : _d.value,
@@ -107,7 +105,7 @@ if (addContactButton) {
             address: (_f = document.getElementById("newPersonAddress")) === null || _f === void 0 ? void 0 : _f.value,
         };
         addContact(dataContact);
-        enableForm === false;
+        closeForm();
     });
 }
 let iconEl = document.querySelectorAll('.group-title');
