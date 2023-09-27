@@ -10,7 +10,7 @@ function expandSearchBar() {
         } else {
             search.style.width = "200px"
             search.style.paddingLeft = "0"
-        }
+       }
     }
 }
 
@@ -35,11 +35,14 @@ function closeForm() {
    
 }
 
+//  Search
+
+const names = document.getElementById('names') as HTMLDivElement | null;
+const contacts = names?.querySelectorAll('.contact') 
+
 function filterNames(){
     const input = document.getElementById('input') as HTMLInputElement | null;
     let filterValue = input?.value.toUpperCase() as any
-    const names = document.getElementById('names') as HTMLDivElement | null;
-    const contacts = names?.querySelectorAll('.contact') 
     // document.getElementById('message').style.display = 'none'
 
     contacts?.forEach( (contact: any)  => {
@@ -51,17 +54,88 @@ function filterNames(){
           contact.querySelectorAll('.category')[0] as HTMLElement ,
        ].filter(item => item).map( item => item.innerText ).join(); 
        let display = '';
-       if (ref.toUpperCase().indexOf(filterValue))  display= 'none';
-        // document.getElementById('message').style.display = 'block'
-        // console.log(document.getElementById('message'))
+       if (ref.toUpperCase().indexOf(filterValue) === -1) display= 'none';
         if(contact != null ) contact.style.display = display;
     })
 }
 
-// add person to contact list
+////-------------------------- add person to contact list----------------------------/////
 
+interface PersonDetail {
+    firstName: string
+    lastName: string
+    phoneNumber: number
+    email: string
+    category: string
+    address: string
+}
 
-// Search by category
+let dataContact: PersonDetail = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: 0,
+    email: '',
+    category: '',
+    address: '',
+};
+
+function createContactHTML(contact: PersonDetail): string {
+    return `
+        <li class="d-flex flex-column col-12 col-lg-4 g-3">
+            <div class="contact p-3">
+                <span class="card-background bg-1"></span>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="d-flex">
+                        <h2 class="first-name">${contact.firstName}</h2>
+                        <h2 class="last-name">${contact.lastName}</h2>
+                    </div>
+                    <img src="assets/image/ppl-photos/icons8-male-user-96.png" alt="contact-photo">
+                </div>
+                <div class="phone-number"><a href="tel:${contact.phoneNumber}" alt="call ${contact.phoneNumber}">${contact.phoneNumber}</a></div>
+                <div class="email"><a href="mailto:${contact.email}">${contact.email}</a></div>
+                <span class="category">${contact.category}</span>
+                <div class="address d-flex text-truncate">
+                    <span>Address:</span>
+                    <p>${contact.address}</p>
+                </div>
+            </div>
+        </li>
+
+    `;
+}
+
+function addContact(person: PersonDetail) {
+    // Create the HTML for the new contact
+    const contactHTML = createContactHTML(person);
+
+    // Append the new contact to the 'names' list
+    const namesList = document.getElementById('names');
+    console.log(namesList)
+    if (namesList) {
+        const newContactElement = document.createElement('li');
+        newContactElement.innerHTML = contactHTML;
+        namesList.appendChild(newContactElement);
+    }
+}
+
+const addContactButton = document.getElementById('addContactButton');
+
+if (addContactButton) {
+    addContactButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        dataContact = {
+            firstName: (document.getElementById('newPersonName') as HTMLInputElement)?.value,
+            lastName: (document.getElementById('newPersonLastName') as HTMLInputElement)?.value,
+            phoneNumber: parseInt((document.getElementById("newPhoneNumber") as HTMLInputElement)?.value),
+            email: (document.getElementById("newPersonEmail") as HTMLInputElement)?.value,
+            category: (document.getElementById("newPersonGroup") as HTMLInputElement)?.value,
+            address: (document.getElementById("newPersonAddress") as HTMLInputElement)?.value,
+        };
+        addContact(dataContact);
+        enableForm === false;
+    });
+}
+//-------------------------- Search by category------------------------///
 
 let iconEl = document.querySelectorAll('.group-title') as any
 
@@ -84,3 +158,5 @@ iconEl.forEach ( (icon: any) => {
         }
    })
 })
+
+

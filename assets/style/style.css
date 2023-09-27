@@ -157,6 +157,10 @@ h1 {
     background-size: contain;
     width: 100vh;
 }
+.form input{
+    padding: 5px 10px;
+    font-weight: 600;
+}
 
 /* Groups */
 
